@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from chat import answer_question
 
-df = pd.read_csv("processedEmbeddings.csv")
+df = pd.read_csv("embeddings.csv")
 df['embeddings'] = df['embeddings'].apply(eval).apply(np.array)
 
 app = Flask(__name__)
