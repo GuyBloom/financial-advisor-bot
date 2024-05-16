@@ -6,10 +6,13 @@ from embeddings_utils import distances_from_embeddings
 from ast import literal_eval
 from openai import OpenAI
 import numpy as np
+import os
+from dotenv import load_dotenv, dotenv_values 
 
-
+load_dotenv()
 client = OpenAI(
-    api_key="sk-proj-Qrs6h7kWhk1f9guncpoST3BlbkFJaAeu4KXXYiUuuYboYcLg")
+    api_key = os.environ.get("OPENAI_API_KEY")
+)
 
 tokenizer = tiktoken.get_encoding("cl100k_base")
 
@@ -162,8 +165,10 @@ def answer_question(
 
 
 
-print(answer_question(df, question="What chatGPT model are you?", debug=False))
+print(answer_question(df, question="What are you?", debug=False))
 print(answer_question(df, question="How do I order checks online for my business?"))
 print(answer_question(df, question="What happens when you file a dispute through Capital One?"))
+print(answer_question(df, question="What makes Capital One unique?"))
+
 
 
