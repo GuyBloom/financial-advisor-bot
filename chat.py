@@ -71,7 +71,7 @@ def answer_question(
             presence_penalty=0,
             stop=stop_sequence,
         )
-        return str(response.choices[0].message).strip()
+        return str(response.choices[0].message.content).strip() + "\nFor more assistance, visit the help center here: \nhttps://www.capitalone.com/help-center/"
     except Exception as e:
         print(e)
         return ""
